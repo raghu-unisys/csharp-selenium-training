@@ -10,7 +10,7 @@ namespace SeleniumConcepts
 {
     internal class Demo6Frames
     {
-        public static void Main(string[] args)
+        public static void Main6(string[] args)
         {
             IWebDriver driver = new ChromeDriver();
 
