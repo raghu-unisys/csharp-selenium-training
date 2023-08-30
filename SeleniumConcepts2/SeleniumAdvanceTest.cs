@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.DevTools.V113.DOM;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,30 @@ namespace Unisys.SeleniumConcepts2
             */
 
             Thread.Sleep(3000);
+            driver.Quit();
+        }
+
+        [Test]
+        public void ActionsTest() 
+        {
+            // Mouse hover activity
+
+            IWebDriver driver = new ChromeDriver();
+
+            driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
+            driver.Url = "https://nasscom.in/";
+
+            // click the item that comes when hovering
+            Actions actions = new Actions(driver);
+            actions.MoveToElement(driver.FindElement(By.XPath("//a[text()='Membership']"))).Perform();
+            driver.FindElement(By.XPath("//a[text()='Members Listing']"));
+
+            // now doing a mouse hover for membership benefits
+            actions.MoveToElement(driver.FindElement(By.XPath("//a[text()='Become a Member']"))).Perform();
+            driver.FindElement(By.XPath("//a[text()='Membership Benefits']")).Click();
+
             driver.Quit();
         }
     }   
