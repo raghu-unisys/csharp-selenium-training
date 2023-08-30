@@ -16,6 +16,7 @@ namespace SeleniumConcepts
         {
             IWebDriver driver = new EdgeDriver();
 
+            // Task 1 - Day - 1 SalesForce Assignment
             driver.Url = "https://www.salesforce.com/in/form/signup/freetrial-sales/";
             driver.Manage().Window.Maximize();
 
